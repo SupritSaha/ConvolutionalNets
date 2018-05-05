@@ -18,7 +18,9 @@ from keras.preprocessing.image import ImageDataGenerator
 # ==============================================
 class cifarClassifier:
     """
-    The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes.The 10 different classes represent airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks. There are 6,000 images of each class
+    The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes.
+    The 10 different classes represent airplanes, cars, birds, cats, deer, dogs,
+    frogs, horses, ships, and trucks. There are 6,000 images of each class
     """
     def __init__(self):
         """
