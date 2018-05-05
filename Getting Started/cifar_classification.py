@@ -27,7 +27,7 @@ class cifarClassifier:
         Load data and initialize models
         """
         (self.x_train, self.y_train),(self.x_test, self.y_test) = cifar10.load_data()
-        self.models = self.all_models()
+        self.models = self.allModels()
         self.trained_model = None
 
     def normalize(self,x_train,x_test):
@@ -123,7 +123,7 @@ class cifarClassifier:
 
         return model
 
-    def all_models(self):
+    def allModels(self):
         """
         Two models - CNN & MLP
         """
@@ -188,7 +188,7 @@ class cifarClassifier:
                     )
         return {'cnn' : cnn, 'mlp': mlp}
 
-    def train(self, method):
+    def trainClassifier(self, method):
         """
         Wrapper method to call the actual training method
         """
@@ -197,7 +197,7 @@ class cifarClassifier:
             method = getattr(self, method)
             self.trained_model = method()
         else:
-            raise("Not a Available method, methods available are \n 1.mlp \n2.cnn")
+            raise("Method not available, methods available are \n 1.mlp \n2.cnn")
 
     def get_model(self, method):
         """
@@ -211,23 +211,23 @@ class cifarClassifier:
         """Get test data"""
         return (self.x_test, self.y_test)
 
-def train_models():
+def trainModels():
     """
     Train both cnn and mlp
     """
     print("\nTraining MLP\n")
     cc = cifarClassifier()
-    cc.train('mlp')
+    cc.trainClassifier('mlp')
     #loss: 1.5691 - acc: 0.4495 - val_loss: 1.5196 - val_acc: 0.4598
     #Test accuracy: 46.8%
 
     print("Training CNN\n")
-    cc.train('cnn')
+    cc.trainClassifier('cnn')
     #loss: 0.8377 - acc: 0.7057 - val_loss: 0.8415 - val_acc: 0.7074
     #Test accuracy: 69.5%
 
 if __name__ == '__main__':
-    train_models()
+    trainModels()
 
 # Comments
 # ==========================================================
